@@ -3,7 +3,7 @@ name: default
 type: kubernetes
 
 steps:
-- name: docker  
+- name: docker
   image: plugins/docker
   settings:
     repo: docker-registry.ngrok.io/jackett-vpn

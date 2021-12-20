@@ -7,11 +7,6 @@ XDG_CONFIG_HOME="/config"
 
 WORKDIR /opt
 
-RUN echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
-RUN apk --no-cache add shadow
-
-RUN usermod -u 99 nobody
-
 # Make directories
 RUN mkdir -p /blackhole /config/Jackett /etc/jackett
 
@@ -19,7 +14,8 @@ RUN mkdir -p /blackhole /config/Jackett /etc/jackett
 RUN apk update && apk upgrade
 
 #  install required packages
-RUN apk add \
+RUN apk --no-cache add \
+    shadow \
     wget \
     curl \
     gnupg \
@@ -45,10 +41,11 @@ RUN apk add \
     krb5-libs \
     #zlib1g \
     #zlib \
-    tzdata
+    tzdata && \
+    rm -rf /tmp/* /var/tmp/*
 
-RUN rm -rf /tmp/* /var/tmp/*
-
+RUN echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories && \
+    usermod -u 99 nobody 
 
 # Install Jackett
 RUN jackett_latest=$(curl --silent "https://api.github.com/repos/Jackett/Jackett/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') \

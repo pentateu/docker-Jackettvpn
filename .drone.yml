@@ -7,4 +7,6 @@ steps:
   image: plugins/docker
   settings:
     repo: docker-registry.ngrok.io/jackett-vpn
+    registry: docker-registry.ngrok.io
     tags: latest
+    auto_tag: true

@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 # Forked from binhex's OpenVPN dockers
 # Wait until tunnel is up
+echo "[info] Waiting until vpn tunnel is up " | ts '%Y-%m-%d %H:%M:%.S'
 while : ; do
 	tunnelstat=$(netstat -ie | grep -E "tun|tap")
 	if [[ ! -z "${tunnelstat}" ]]; then

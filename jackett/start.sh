@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [[ ! -e /config/Jackett ]]; then
 	mkdir -p /config/Jackett
 fi

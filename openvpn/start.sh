@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 # Forked from binhex's OpenVPN dockers
 set -e
+
+echo "[info] OpenVPN start.sh File ! " | ts '%Y-%m-%d %H:%M:%.S'
 
 # check for presence of network interface docker0
 check_network=$(ifconfig | grep docker0 || true)

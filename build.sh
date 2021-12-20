@@ -1,0 +1,1 @@
+docker build -t docker-registry.ngrok.io/jackett-vpn:latest ./ && docker push docker-registry.ngrok.io/jackett-vpn:latest

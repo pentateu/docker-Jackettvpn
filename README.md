@@ -1,4 +1,7 @@
-[preview]: https://raw.githubusercontent.com/DyonR/docker-templates/master/Screenshots/jackettvpn/jackettvpn-mainpage.png "Jackett Preview"
+## Build and Push to Local Docker Repo #
+```
+docker build -t docker-registry.ngrok.io/jackett-vpn:latest ./ && docker push docker-registry.ngrok.io/jackett-vpn:latest
+```
 
 # Jackett and OpenVPN
 Docker container which runs the latest headless Jackett Server while connecting to OpenVPN with iptables killswitch to prevent IP leakage when the tunnel goes down.
